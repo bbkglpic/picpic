@@ -8,7 +8,7 @@ def download(filename):
         content = f.read()
     pat = r"!\[(.*)\]\((.*)\)"
     matchlist = re.findall(pat, content)
-    print(matchlist)
+    # print(matchlist)
     imglist = []
     for img in matchlist:
         url = img[1]
@@ -40,7 +40,7 @@ def download(filename):
             if (oldline[-1] == '\n'):
                 oldline = oldline[0:-1]
             old2newline.append([oldline, newline])
-    print(old2newline)
+    # print(old2newline)
     with open(filename) as f:
         content = f.read()
         for l2l in old2newline:
@@ -50,6 +50,16 @@ def download(filename):
     with open(filename, 'w') as f:
         f.write(content)
 
+
+
 if __name__ == "__main__":
-    filename = "/home/bbkgl/mymd/bbkgl.github.io/_posts/2019-11-07-面向对象系统分析与设计.md"
-    download(filename)
+    dir = "/home/bbkgl/mymd/bbkgl.github.io/_posts/"
+    filelist = os.listdir(dir)
+    for file in filelist:
+        if file < "2019-11-07-面向对象系统分析与设计":
+            print(file)
+            try:
+                download(dir + file)
+            except:
+                print(file)
+                continue
