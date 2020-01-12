@@ -46,7 +46,7 @@ def download(filename):
         for l2l in old2newline:
             content = content.replace(l2l[0], l2l[1])
 
-    print(content)
+    # print(content)
     with open(filename, 'w') as f:
         f.write(content)
 
@@ -54,12 +54,14 @@ def download(filename):
 
 if __name__ == "__main__":
     dir = "/home/bbkgl/mymd/bbkgl.github.io/_posts/"
-    filelist = os.listdir(dir)
-    for file in filelist:
-        if file < "2019-11-07-面向对象系统分析与设计":
-            print(file)
-            try:
-                download(dir + file)
-            except:
-                print(file)
-                continue
+    file = "2019-11-03-维纳滤波还原运动模糊图像.md"
+    download(dir + file)
+    # filelist = os.listdir(dir)
+    # for file in filelist:
+    #     if file < "2019-11-07-面向对象系统分析与设计":
+    #         print(file)
+    #         try:
+    #             download(dir + file)
+    #         except:
+    #             print(file)
+    #             continue
